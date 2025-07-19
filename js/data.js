@@ -51,7 +51,7 @@ const data = [
   { stt: 50, question: "Trong truyền thuyết, Phục Hi Thị đã dùng hình ảnh con vật nào làm vật tổ của bộ lạc?", answer: "Xà Long" },
   { stt: 51, question: "Theo \"Sơn Hải Kinh\", cưỡi trên con Thọ Thú nào đó ngự gió mà đi, có thể tăng 2000 năm tuổi thọ, nó là?", answer: "Thừa Hoàng" },
   { stt: 52, question: "Vong Ưu ...?", answer: "11" },
-  { stt: 53, question: "Khi Hoàng Đế và Sỉ Vưu đại chiến, ai chưa từng giúp đỡ Sỉ Vưu?", answer: "Hạn Bạt" },
+  { stt: 53, question: "Khi Hoàng Đế và Si Vưu đại chiến, ai chưa từng giúp đỡ Si Vưu?", answer: "Hạn Bạt" },
   { stt: 54, question: "Trong truyền thuyết, ai đã sáng tạo ra chữ viết?", answer: "Thương Hiệt" },
   { stt: 55, question: "Cùng Kỳ...?", answer: "Hệ Yêu Khuyển" }
 ];
