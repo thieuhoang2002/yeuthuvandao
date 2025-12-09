@@ -1,4 +1,5 @@
 // js/main.js
+//test
 
 document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.querySelector("#qa-table tbody");
