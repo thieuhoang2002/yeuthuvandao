@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-const Footer = memo(() => {
+const Footer = memo(({ onTabChange }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,24 +24,36 @@ const Footer = memo(() => {
             <h3 className="text-white font-bold text-lg mb-4">Liên Kết Nhanh</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-white/70 hover:text-white transition-colors text-sm">
+                <button 
+                  onClick={() => onTabChange('home')}
+                  className="text-white/70 hover:text-white transition-colors text-sm text-left w-full"
+                >
                   🏠 Trang Chủ
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#bandao" className="text-white/70 hover:text-white transition-colors text-sm">
+                <button 
+                  onClick={() => onTabChange('bandao')}
+                  className="text-white/70 hover:text-white transition-colors text-sm text-left w-full"
+                >
                   📚 Bàn Đào
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#tips" className="text-white/70 hover:text-white transition-colors text-sm">
+                <button 
+                  onClick={() => onTabChange('tips')}
+                  className="text-white/70 hover:text-white transition-colors text-sm text-left w-full"
+                >
                   💡 Tips & Tricks
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#tool" className="text-white/70 hover:text-white transition-colors text-sm">
+                <button 
+                  onClick={() => onTabChange('tool')}
+                  className="text-white/70 hover:text-white transition-colors text-sm text-left w-full"
+                >
                   🛠️ Công Cụ
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -50,12 +62,12 @@ const Footer = memo(() => {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Liên Hệ</h3>
             <div className="space-y-2">
-              <a 
-                href="#donate" 
+              <button 
+                onClick={() => onTabChange('donate')}
                 className="inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium hover:shadow-lg transition-all duration-300"
               >
                 ❤️ Ủng Hộ Dự Án
-              </a>
+              </button>
               <p className="text-white/70 text-sm mt-4">
                 Mọi đóng góp đều giúp dự án phát triển tốt hơn!
               </p>

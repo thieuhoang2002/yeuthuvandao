@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
@@ -11,6 +11,11 @@ function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [searchValue, setSearchValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+
+  // Scroll to top when tab changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
 
   // Tối ưu: Memoize filtered data
   const filteredData = useMemo(() => {
@@ -92,7 +97,7 @@ function App() {
         )}
       </main>
 
-      <Footer />
+      <Footer onTabChange={setActiveTab} />
     </div>
   );
 }
