@@ -1,4 +1,24 @@
 /**
+ * Highlight search term in text
+ * Returns HTML string with <mark> tags
+ */
+export const highlightText = (text, searchTerm) => {
+  if (!searchTerm || !text) return text;
+  
+  const words = searchTerm.split(/\s+/).filter(w => w.length > 1);
+  
+  let result = text;
+  
+  // Highlight exact matches
+  words.forEach(word => {
+    const regex = new RegExp(`(${word})`, 'gi');
+    result = result.replace(regex, '<mark class="bg-yellow-300/70 text-gray-900 px-1 rounded">$1</mark>');
+  });
+
+  return result;
+};
+
+/**
  * Debounce function để giảm số lần gọi function
  * Sử dụng cho search input để tránh filter quá nhiều lần
  */
@@ -26,26 +46,6 @@ export const throttle = (func, limit) => {
       setTimeout(() => (inThrottle = false), limit);
     }
   };
-};
-
-/**
- * Highlight search term trong text
- */
-export const highlightText = (text, searchTerm) => {
-  if (!searchTerm) return text;
-  
-  const regex = new RegExp(`(${searchTerm})`, 'gi');
-  return text.replace(regex, '<mark class="bg-yellow-300/50">$1</mark>');
-};
-
-/**
- * Normalize Vietnamese text for better search
- */
-export const normalizeVietnamese = (str) => {
-  return str
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
 };
 
 /**

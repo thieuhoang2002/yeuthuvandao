@@ -1,18 +1,29 @@
 import { memo } from 'react';
+import { highlightText } from '../utils/helpers';
 
-const TableRow = memo(({ item, index }) => {
+const TableRow = memo(({ item, index, searchTerm }) => {
   return (
     <tr className="glass-hover border-b border-white/10">
       <td className="px-6 py-4 text-white/90 font-medium">{item.stt}</td>
-      <td className="px-6 py-4 text-white/90">{item.question}</td>
-      <td className="px-6 py-4 text-white font-semibold whitespace-pre-line">{item.answer}</td>
+      <td 
+        className="px-6 py-4 text-white/90"
+        dangerouslySetInnerHTML={{ 
+          __html: highlightText(item.question, searchTerm) 
+        }}
+      />
+      <td 
+        className="px-6 py-4 text-white font-semibold whitespace-pre-line"
+        dangerouslySetInnerHTML={{ 
+          __html: highlightText(item.answer, searchTerm) 
+        }}
+      />
     </tr>
   );
 });
 
 TableRow.displayName = 'TableRow';
 
-const QATable = memo(({ data }) => {
+const QATable = memo(({ data, searchTerm = '' }) => {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="glass rounded-2xl overflow-hidden shadow-2xl">
@@ -27,7 +38,12 @@ const QATable = memo(({ data }) => {
             </thead>
             <tbody>
               {data.map((item, index) => (
-                <TableRow key={item.stt} item={item} index={index} />
+                <TableRow 
+                  key={item.stt} 
+                  item={item} 
+                  index={index}
+                  searchTerm={searchTerm}
+                />
               ))}
             </tbody>
           </table>

@@ -1,10 +1,14 @@
 import { useState, useMemo, useCallback } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './components/HomePage';
 import SearchBar from './components/SearchBar';
 import SuggestionList from './components/SuggestionList';
 import QATable from './components/QATable';
 import { qaData } from './data';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('home');
   const [searchValue, setSearchValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -41,35 +45,54 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
-      <div className="container mx-auto py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
-            🎮 Đáp Án Bàn Đào
-          </h1>
-          <p className="text-xl text-white/90 font-medium drop-shadow-lg">
-            From THIEUHOANG deptrai S27
-          </p>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+      
+      <main className="flex-grow p-4 md:p-8 mt-16">
+        {activeTab === 'home' ? (
+          <HomePage onTabChange={setActiveTab} />
+        ) : activeTab === 'bandao' ? (
+          <div className="container mx-auto py-8">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
+                🎮 Đáp Án Bàn Đào
+              </h1>
+              <p className="text-xl text-white/90 font-medium drop-shadow-lg">
+                From THIEUHOANG deptrai S27
+              </p>
+            </div>
 
-        {/* Search Bar */}
-        <SearchBar
-          value={searchValue}
-          onChange={handleSearchChange}
-          onClear={handleClearSearch}
-        />
+            {/* Search Bar */}
+            <SearchBar
+              value={searchValue}
+              onChange={handleSearchChange}
+              onClear={handleClearSearch}
+            />
 
-        {/* Suggestions */}
-        <SuggestionList
-          suggestions={suggestions}
-          onSelect={handleSelectSuggestion}
-          isVisible={showSuggestions && searchValue.trim()}
-        />
+            {/* Suggestions */}
+            <SuggestionList
+              suggestions={suggestions}
+              onSelect={handleSelectSuggestion}
+              isVisible={showSuggestions && searchValue.trim()}
+            />
 
-        {/* QA Table */}
-        <QATable data={filteredData} />
-      </div>
+            {/* QA Table */}
+            <QATable data={filteredData} searchTerm={searchValue} />
+          </div>
+        ) : (
+          <div className="container mx-auto py-8">
+            <div className="glass rounded-3xl p-12 text-center">
+              <h1 className="text-4xl font-bold text-white mb-4">🚧 Đang Xây Dựng 🚧</h1>
+              <p className="text-xl text-white/70">
+                Phần này đang được phát triển. Hãy quay lại sau nhé đạo hữu!
+              </p>
+            </div>
+          </div>
+        )}
+      </main>
+
+      <Footer />
     </div>
   );
 }
