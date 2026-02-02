@@ -11,7 +11,7 @@ const Footer = memo(({ onTabChange }) => {
           <div>
             <h3 className="text-white font-bold text-lg mb-4 flex items-center">
               <span className="mr-2">🌸</span>
-              Yêu Thư Vấn Đạo
+              Yêu Thú Vấn Đạo
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Tra cứu đáp án bàn đào nhanh chóng và chính xác. 
@@ -78,10 +78,7 @@ const Footer = memo(({ onTabChange }) => {
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/10 text-center">
           <p className="text-white/60 text-sm">
-            © {currentYear} Yêu Thú Vấn Đạo. Made with 💜 by Tu Tiên Community
-          </p>
-          <p className="text-white/40 text-xs mt-2">
-            Glassmorphism Design • Built with Vite + React + Tailwind CSS
+            © {currentYear} Yêu Thú Vấn Đạo. Made with 💜 by THIEUHOANG deptrai S27
           </p>
         </div>
       </div>
