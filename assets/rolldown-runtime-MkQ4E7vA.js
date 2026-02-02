@@ -1,0 +1,1 @@
+var t=Object.getOwnPropertyNames,e=(e,r)=>function(){return r||(0,e[t(e)[0]])((r={exports:{}}).exports,r),r.exports};export{e as t};
