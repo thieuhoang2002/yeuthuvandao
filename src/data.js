@@ -1,4 +1,4 @@
-const data = [
+export const qaData = [
   { stt: 1, question: "Phiên thiên ấn là pháp bảo của ai?", answer: "Quảng Thành Tử" },
   { stt: 2, question: "Khi vân du có thể tìm thấy Định Phong Châu ở khu vực nào?", answer: "Trung Sơn Kinh" },
   { stt: 3, question: "Khi vân du có thể tìm thấy Mạn Châu Sa Hoa ở địa vực nào?", answer: "Nam Sơn Kinh" },

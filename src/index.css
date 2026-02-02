@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 min-h-screen m-0;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/15 transition-all duration-300;
+  }
+  
+  .input-glass {
+    @apply bg-white/20 backdrop-blur-sm border border-white/30 
+           focus:bg-white/25 focus:border-white/50 focus:outline-none 
+           transition-all duration-300;
+  }
+}
+
